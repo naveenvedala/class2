@@ -27,8 +27,13 @@ const bodyParser = require('body-parser');
 const login = require('./routes/login');
 const rest = require('./routes/rest');
 const session = require('express-session');
+var passport = require('passport');
 
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/test');
 
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 app.set('view engine', 'ejs');
